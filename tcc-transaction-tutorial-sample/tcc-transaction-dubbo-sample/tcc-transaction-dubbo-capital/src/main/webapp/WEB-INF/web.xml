@@ -20,15 +20,12 @@
         <param-name>log4jRefreshInterval</param-name>
         <param-value>60000</param-value>
     </context-param>
-
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
+    
+    <context-param>
+	    <param-name>webAppRootKey</param-name>
+	    <param-value>webapp.root.capital</param-value>
+	  </context-param>
+    
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <display-name>Character Encoding Filter</display-name>
@@ -47,6 +44,16 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    
 
     <servlet>
         <servlet-name>springmvc</servlet-name>

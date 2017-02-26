@@ -56,7 +56,7 @@ public class CompensableTransactionInterceptor {
         } catch (OptimisticLockException e) {
             throw e; //do not rollback, waiting for recovery job
         } catch (Throwable tryingException) {
-            logger.warn("compensable transaction trying failed.", tryingException);
+            logger.warn("compensable transaction trying failed.   =======================", tryingException);
             transactionConfigurator.getTransactionManager().rollback();
             throw tryingException;
         }
